@@ -1,0 +1,21 @@
+/* Desktop */
+.anoyt-logo {
+  width: 220px;
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .anoyt-logo {
+    width: 180px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .anoyt-logo {
+    width: 140px;
+  }
+}

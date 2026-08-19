@@ -1,0 +1,221 @@
+/* ================================
+   ANOYT — Global Theme
+   ================================ */
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-tertiary: #181818;
+
+  /* Surfaces */
+  --surface: #141414;
+  --surface-hover: #1c1c1c;
+  --surface-active: #242424;
+
+  /* Borders */
+  --border: #292929;
+  --border-light: #333333;
+
+  /* Text */
+  --text-primary: #f2f2f2;
+  --text-secondary: #a1a1a1;
+  --text-muted: #666666;
+
+  /* Accent — Dark Red / Maroon */
+  --accent: #7f1d1d;
+  --accent-hover: #991b1b;
+  --accent-active: #b91c1c;
+  --accent-muted: #451a1a;
+
+  /* Status */
+  --success: #4ade80;
+  --warning: #facc15;
+  --error: #ef4444;
+
+  /* Typography */
+  --font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ================================
+   Reset
+   ================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+
+body {
+  min-height: 100vh;
+
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+
+  font-family: var(--font-family);
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* ================================
+   Basic Elements
+   ================================ */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+
+input,
+textarea {
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  outline: none;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+
+input:focus,
+textarea:focus {
+  border-color: var(--accent);
+}
+
+
+/* ================================
+   Selection
+   ================================ */
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+
+/* ================================
+   Scrollbar
+   ================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 999px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+}
+
+
+/* ================================
+   Utility
+   ================================ */
+
+.container {
+  width: min(100% - 32px, 1400px);
+  margin-inline: auto;
+}
+
+
+/* ================================
+   Responsive
+   ================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --space-lg: 20px;
+    --space-xl: 28px;
+    --space-2xl: 36px;
+  }
+
+  .container {
+    width: min(100% - 24px, 1400px);
+  }
+}
+
+
+@media (max-width: 480px) {
+  :root {
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 24px;
+  }
+
+  .container {
+    width: calc(100% - 20px);
+  }
+}

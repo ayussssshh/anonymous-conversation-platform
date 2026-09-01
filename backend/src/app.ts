@@ -1,6 +1,6 @@
 import express from "express";
-import mainRouter from "./routes/HomePageRoutes";
-import logger from "./lib/logger";
+import mainRouter from "./routes/HomePageRoutes.js";
+import logger from "./lib/logger.js";
 import { pinoHttp } from "pino-http";
 
 

@@ -32,7 +32,7 @@ The project is being developed as a serious full-stack engineering project, with
 ### Backend
 
 * TypeScript
-* Fastify
+* Express
 
 ### Database
 

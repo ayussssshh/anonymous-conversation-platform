@@ -434,7 +434,7 @@ The first implementation will use:
 ### Backend
 
 * TypeScript
-* Fastify
+* Express
 
 ### Database
 

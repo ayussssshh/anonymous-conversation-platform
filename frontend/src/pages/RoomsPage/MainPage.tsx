@@ -1,6 +1,6 @@
 import "./MainPage.css";
-import Header from "./../components/Header/Header";
-import RoomCard from "../components/RoomCard/RoomCard";
+import Header from "./../../components/Header/Header";
+import RoomCard from "./../../components/RoomCard/RoomCard";
 
 function MainPage() {
     return (

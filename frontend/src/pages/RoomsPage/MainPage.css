@@ -1,7 +1,8 @@
+
 .main-page {
     min-height: 100vh;
     background: var(--bg-primary);
-    color: #f2f2f2;
+    color: var(--text-primary);
 }
 
 /* Main content */
@@ -11,7 +12,7 @@
     max-width: 1200px;
 
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: var(--space-xl) var(--space-md);
 }
 
 /* Room layout */
@@ -23,7 +24,7 @@
         minmax(280px, 360px)
     );
 
-    gap: 1.25rem;
+    gap: var(--space-md);
 
     justify-content: start;
 }
@@ -32,7 +33,7 @@
 
 @media (max-width: 768px) {
     .main-page__content {
-        padding: 1.5rem 1rem;
+        padding: var(--space-lg) var(--space-sm);
     }
 
     .rooms {
@@ -47,11 +48,11 @@
 
 @media (max-width: 480px) {
     .main-page__content {
-        padding: 1rem 0.75rem;
+        padding: var(--space-md) var(--space-xs);
     }
 
     .rooms {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: var(--space-md);
     }
 }

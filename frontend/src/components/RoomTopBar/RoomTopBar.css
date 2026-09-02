@@ -1,0 +1,49 @@
+
+.room-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  min-height: 64px;
+
+  padding: 0 var(--space-lg);
+
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.room-top-bar h4 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.room-top-bar h5 {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .room-top-bar {
+    min-height: 58px;
+    padding: 0 var(--space-md);
+  }
+
+  .room-top-bar h4 {
+    font-size: 15px;
+  }
+
+  .room-top-bar h5 {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,14 @@
+.room-chat-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+.room-chat-page > div:last-child {
+  position: fixed;
+  left: 0;
+
+  width: 100%;
+}

@@ -1,0 +1,95 @@
+.sendmsg {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+
+  background: var(--bg-primary);
+ 
+}
+
+.sendmsg form {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-sm);
+
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.msgtypeing {
+  flex: 1;
+
+  min-height: 44px;
+  max-height: 120px;
+
+  padding: var(--space-sm) var(--space-md);
+
+  resize: none;
+
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  font: inherit;
+  font-size: 14px;
+  line-height: 20px;
+
+  outline: none;
+
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.msgtypeing::placeholder {
+  color: var(--text-muted);
+}
+
+.msgtypeing:focus {
+  border-color: var(--accent);
+}
+
+.msg-send-button {
+  height: 50px;
+  padding: 0 var(--space-md);
+  margin-bottom: 5px;
+
+  flex-shrink: 0;
+
+  background: var(--accent);
+  color: var(--text-primary);
+
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 150ms ease,
+    border-color 150ms ease;
+}
+
+.msg-send-button:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.msg-send-button:active {
+  background: var(--accent-active   );
+}
+
+@media (max-width: 640px) {
+  .sendmsg {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .msg-send-button {
+    padding: 0 var(--space-md);
+  }
+}

@@ -1,6 +1,6 @@
 .sendmsg {
   width: 100%;
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-sm) var(--space-lg);
 
   background: var(--bg-primary);
  

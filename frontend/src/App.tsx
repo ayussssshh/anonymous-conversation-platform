@@ -1,4 +1,4 @@
-import MainPage from "./pages/RoomsPage/MainPage";
+import MainPage from "./pages/RoomsPage/RoomListPage";
 import HomePage from "./pages/HomePage/HomePage";
 import RoomChatPage from "./pages/RoomChatPage/RoomChatPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

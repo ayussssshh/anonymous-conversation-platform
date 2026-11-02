@@ -1,0 +1,242 @@
+/* ================================
+   Room List Page
+   Uses only variables from index.css
+   ================================ */
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+
+/* ================================
+   Content
+   ================================ */
+
+.main-page__content {
+    flex: 1;
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    /* --space-* tokens already shrink on tablet and mobile (index.css) */
+    padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+}
+
+
+/* ================================
+   Page head
+   ================================ */
+
+.main-page__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-md);
+
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-lg);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.main-page__heading {
+    min-width: 0;
+}
+
+.main-page__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.main-page__subtitle {
+    margin-top: var(--space-xs);
+
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+
+/* ================================
+   Buttons
+   ================================ */
+
+.page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+
+    flex-shrink: 0;
+    min-height: 40px;
+    padding: 0 var(--space-lg);
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-md);
+
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.page-btn:focus-visible {
+    outline: 2px solid var(--accent-active);
+    outline-offset: 2px;
+}
+
+.page-btn--primary {
+    background: var(--accent);
+    color: var(--text-primary);
+}
+
+.page-btn--primary:hover {
+    background: var(--accent-hover);
+}
+
+.page-btn--primary:active {
+    background: var(--accent-active);
+}
+
+.page-btn--ghost {
+    background: transparent;
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+.page-btn--ghost:hover {
+    background: var(--surface-hover);
+}
+
+.page-btn--ghost:active {
+    background: var(--surface-active);
+}
+
+
+/* ================================
+   Room grid
+   ================================ */
+
+/*
+   One rule covers every screen size:
+   1 column on phones, 2 on tablets, 3 on desktop.
+   min(100%, 300px) stops cards overflowing very narrow screens.
+*/
+.rooms {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(100%, 300px), 1fr)
+    );
+    gap: var(--space-md);
+}
+
+.rooms > * {
+    min-width: 0;
+}
+
+
+/* ================================
+   Loading skeleton
+   ================================ */
+
+.rooms__skeleton {
+    min-height: 140px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    animation: rooms-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes rooms-pulse {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+
+/* ================================
+   Empty and error states
+   ================================ */
+
+.rooms-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+
+    padding: var(--space-2xl) var(--space-md);
+
+    border: 1px dashed var(--border-light);
+    border-radius: var(--radius-lg);
+
+    text-align: center;
+}
+
+.rooms-state__title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+}
+
+.rooms-state__text {
+    max-width: 36ch;
+
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.rooms-state .page-btn {
+    margin-top: var(--space-sm);
+}
+
+
+/* ================================
+   Mobile
+   ================================ */
+
+@media (max-width: 480px) {
+    .main-page__head {
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-md);
+    }
+
+    .main-page__title {
+        font-size: 1.25rem;
+    }
+
+    /* Larger touch target */
+    .page-btn {
+        min-height: 44px;
+        padding: 0 var(--space-md);
+    }
+}
+
+
+/* ================================
+   Reduced motion
+   ================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .rooms__skeleton {
+        animation: none;
+    }
+
+    .page-btn {
+        transition: none;
+    }
+}

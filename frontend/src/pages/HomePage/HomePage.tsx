@@ -17,7 +17,9 @@ export default function Home() {
 
     async function createUser() {
 
-        const result = await api("/")
+        const response = await api.get("/create-temp-session")
+
+        // check the response for failure case
 
         navigate('/room')
 

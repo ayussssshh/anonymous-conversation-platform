@@ -1,5 +1,5 @@
 import express from "express";
-import mainRouter from "./routes/HomePageRoutes.js";
+import frontend_router from "./routes/HomePageRoutes.js";
 import logger from "./lib/logger.js";
 import { pinoHttp } from "pino-http";
 import cors from "cors"
@@ -15,6 +15,7 @@ export function buildApp() {
     app.use(
         cors({
             origin: "http://localhost:5173",
+            credentials: true
         })
     );
     app.use(express.json());
@@ -23,7 +24,7 @@ export function buildApp() {
             logger
         })
     )
-    app.use("/", mainRouter)
+    app.use("/api/", frontend_router)
 
     return app;
 }

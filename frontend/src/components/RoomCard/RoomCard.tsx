@@ -2,7 +2,7 @@ import "./RoomCard.css"
 
 
 
-interface RoomCardProps {
+export interface RoomCardProps {
     name: string;
     description: string;
     members: number;

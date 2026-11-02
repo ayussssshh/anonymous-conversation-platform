@@ -4,12 +4,31 @@
 
 import RoomTopBar from "../../components/RoomTopBar/RoomTopBar"
 import SendMsg from "../../components/RoomMsgSend/RoomMsgSend"
-import ChatMsg from "../../components/ChatMsg/ChatMsg";
+import ChatMsg from "../../components/ChatMsg/ChatMsg"
+import { useState } from "react";
 import "./RoomChatPage.css"
+
+
+interface Message {
+    username: string;
+    massage: string;
+    timestamp: number;
+}
 
 
 
 export default function RoomChatPage() {
+
+
+    const [messages, setMessages] = useState<Message[]>([])
+
+    function addMessage(message: Message) {
+
+        const newMessage: Message = message
+
+        setMessages(prev => [...prev, newMessage])
+
+    }
 
 
     return (
@@ -25,78 +44,20 @@ export default function RoomChatPage() {
 
             <main className="chatmsg-container">
 
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
 
-                <ChatMsg
-                    username="test2"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
 
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
 
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
+                {messages.map(msg => (
 
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
+                    <ChatMsg
+                        username={msg.username}
+                        massage={msg.massage}
+                        timestamp={msg.timestamp}
+                    />
 
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
+                ))}
 
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
-
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
-
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
-
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse f"
-                    timestamp={6732042}
-                />
-
-                <ChatMsg
-                    username="test1"
-                    massage="checking the test of the meaggse"
-                    timestamp={6732042}
-                />
-
-                <ChatMsg
-                    username="test1"
-                    massage="checkingeouweoiujjjueiourfiw the test of the meaggse"
-                    timestamp={6732042}
-                />
-
+                
                 <div
                     className="sendmsg-positioner"
                 >

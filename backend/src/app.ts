@@ -1,9 +1,13 @@
 import express from "express";
-import frontend_router from "./routes/HomePageRoutes.js";
 import logger from "./lib/logger.js";
 import { pinoHttp } from "pino-http";
 import cors from "cors"
 import cookieParser from "cookie-parser";
+
+
+import createUser_Router from "./routes/createUser_Router.js";
+import rooms_Router from "./routes/rooms_Router.js"
+
 
 
 export function buildApp() {
@@ -24,7 +28,8 @@ export function buildApp() {
             logger
         })
     )
-    app.use("/api/", frontend_router)
+    app.use("/api/create-temp-session", createUser_Router)
+    app.use("/api/rooms", rooms_Router)
 
     return app;
 }

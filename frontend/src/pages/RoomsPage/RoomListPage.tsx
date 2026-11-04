@@ -4,6 +4,7 @@ import RoomCard from "../../components/RoomCard/RoomCard";
 import type { RoomCardProps } from "../../components/RoomCard/RoomCard";
 import { api } from "../../modules/Apis";
 import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SKELETON_COUNT = 6;
 
@@ -12,10 +13,13 @@ function RoomListPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    const navigate = useNavigate()
+
+
     const loadRooms = useCallback(async () => {
         try {
-            const response = await api.get("/room-list");
-            setRoomlist(response.data);
+            const response = await api.get("/rooms/room-list");
+            setRoomlist(response.data.data);
             setError(null);
         } catch (err) {
             console.error(err);
@@ -36,7 +40,9 @@ function RoomListPage() {
     }
 
     function handleCreateRoom() {
-        // TODO: open the create room flow
+        
+        navigate('/create-room')
+
     }
 
     const hasRooms = !isLoading && !error && roomlist.length > 0;

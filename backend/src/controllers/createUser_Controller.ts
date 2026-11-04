@@ -1,6 +1,6 @@
-import { createCredential } from "./../module/UserIdentification.js"
+import { createCredential } from "../module/UserIdentification.js"
 import { Request, Response } from "express"
-import { qureyRoomList } from "../repositories/roomsRepositories.js"
+import {send_response} from "../lib/sendResponse.js"
 
 
 
@@ -10,22 +10,6 @@ import { qureyRoomList } from "../repositories/roomsRepositories.js"
 //                               massage: "string"
 //                               response code 
 //                               }
-
-
-
-
-async function send_response(res: Response,
-    success: boolean,
-    massage: string,
-    status_code: number
-): Promise<Response> {
-    return res.status(status_code).json({
-        success: success,
-        massage: massage
-    })
-
-}
-
 
 
 const createUser = async (req: Request, res: Response) => {
@@ -44,13 +28,7 @@ const createUser = async (req: Request, res: Response) => {
 
 }
 
-const getRoomList = async (req: Request, res: Response)=> {
-
-    const RoomList = await qureyRoomList();
-
-    res.json(RoomList);
-
-}
 
 
-export { createUser, getRoomList }
+
+export { createUser }

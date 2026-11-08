@@ -23,11 +23,11 @@ export function buildApp() {
         })
     );
     app.use(express.json());
-    app.use(
-        pinoHttp({
-            logger
-        })
-    )
+    // app.use(
+    //     pinoHttp({
+    //         logger
+    //     })
+    // )
     app.use("/api/create-temp-session", createUser_Router)
     app.use("/api/rooms", rooms_Router)
 

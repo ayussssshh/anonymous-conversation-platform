@@ -1,9 +1,10 @@
 .sendmsg {
-  width: 100%;
-  padding: var(--space-sm) var(--space-lg);
+  flex-shrink: 0;
 
-  background: var(--bg-primary);
- 
+  padding: var(--space-md) var(--space-lg);
+
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
 }
 
 .sendmsg form {
@@ -16,47 +17,37 @@
   margin: 0 auto;
 }
 
-.msgtypeing {
+.sendmsg-input {
   flex: 1;
 
   min-height: 44px;
   max-height: 120px;
 
-  padding: var(--space-sm) var(--space-md);
+  padding: 12px var(--space-md);
 
   resize: none;
 
-  background: var(--bg-primary);
+  background: var(--surface);
   color: var(--text-primary);
 
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
 
-  font: inherit;
   font-size: 14px;
   line-height: 20px;
 
-  outline: none;
-
-  transition:
-    border-color 150ms ease,
-    box-shadow 150ms ease;
+  transition: border-color 150ms ease;
 }
 
-.msgtypeing::placeholder {
-  color: var(--text-muted);
-}
-
-.msgtypeing:focus {
+.sendmsg-input:focus {
   border-color: var(--accent);
 }
 
-.msg-send-button {
-  height: 50px;
-  padding: 0 var(--space-md);
-  margin-bottom: 5px;
-
+.sendmsg-button {
   flex-shrink: 0;
+
+  height: 44px;
+  padding: 0 var(--space-lg);
 
   background: var(--accent);
   color: var(--text-primary);
@@ -64,32 +55,24 @@
   border: 1px solid var(--accent);
   border-radius: var(--radius-md);
 
-  font: inherit;
   font-size: 14px;
   font-weight: 600;
 
-  cursor: pointer;
-
-  transition:
-    background 150ms ease,
-    border-color 150ms ease;
+  transition: background 150ms ease, border-color 150ms ease;
 }
 
-.msg-send-button:hover {
+.sendmsg-button:hover {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
 }
 
-.msg-send-button:active {
-  background: var(--accent-active   );
+.sendmsg-button:active {
+  background: var(--accent-active);
+  border-color: var(--accent-active);
 }
 
 @media (max-width: 640px) {
   .sendmsg {
     padding: var(--space-sm) var(--space-md);
-  }
-
-  .msg-send-button {
-    padding: 0 var(--space-md);
   }
 }

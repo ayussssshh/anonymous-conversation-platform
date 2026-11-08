@@ -1,6 +1,7 @@
 import { useState, type SyntheticEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CreateRoomPage.css";
+import { api } from "../../modules/Apis";
 
 type Visibility = "public" | "private";
 
@@ -43,7 +44,7 @@ export default function CreateRoomPage() {
     description: false
   })
 
-  const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
 
     e.preventDefault();
 
@@ -69,7 +70,9 @@ export default function CreateRoomPage() {
       visibility: fromData.get("visibility") as Visibility
     }
 
-    console.log(roomData)
+    const response = await api.post("rooms/room-create", roomData)
+
+    console.log(response);
 
   };
 

@@ -1,13 +1,15 @@
 import "dotenv/config";
 import crypto from "node:crypto";
 
+
+
 const HMAC_SECRET = process.env.ANON_ID_SECRET ?? "";
 
 if (HMAC_SECRET === "") {
     throw new Error("ANON_ID_SECRET is not configured");
 }
 
-function createHmac(payload: string): string {
+export function createHmac(payload: string): string {
     return crypto
         .createHmac("sha256", HMAC_SECRET)
         .update(payload)
@@ -19,10 +21,10 @@ function generateParticipantId(): string {
 }
 
 export function createCredential(): string {
-    const participantId = generateParticipantId();
+    const participantId: string = generateParticipantId();
 
-    const issuedAt = Math.floor(Date.now() / 1000);
-    const expiresAt = issuedAt + 60 * 60 * 24 * 30;
+    const issuedAt: number = Math.floor(Date.now() / 1000);
+    const expiresAt: number = issuedAt + 60 * 60 * 24 * 30;
 
     const payload = `${participantId}.${issuedAt}.${expiresAt}`;
 
@@ -77,4 +79,5 @@ export function verifyCredential(
 
     return participantId;
 }
+
 

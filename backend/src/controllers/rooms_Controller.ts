@@ -1,6 +1,7 @@
 import {send_response} from "../lib/sendResponse.js"
 import { Request, Response } from "express"
 import { createRoom, joinRoom, qureyRoomList } from "../repositories/roomsRepositories.js"
+import { B10toB32, B32toB10 } from "../lib/baseConversion.js"
 
 
 
@@ -8,6 +9,15 @@ import { createRoom, joinRoom, qureyRoomList } from "../repositories/roomsReposi
 const CTRL_getRoomList = async (req: Request, res: Response)=> {
 
     const RoomList = await qureyRoomList()
+
+    if(RoomList === undefined){
+        // handle the error rn now i am returning the function
+        return
+    }
+
+    for(const room of RoomList){
+        room.room_id = B10toB32(room.room_id)
+    }
 
     await send_response(res, true, "fetched the list of rooms", 200, RoomList)
 

@@ -19,6 +19,7 @@ function RoomListPage() {
     const loadRooms = useCallback(async () => {
         try {
             const response = await api.get("/rooms/room-list");
+            console.log(response.data.data)
             setRoomlist(response.data.data);
             setError(null);
         } catch (err) {
@@ -52,6 +53,8 @@ function RoomListPage() {
     if (hasRooms) {
         subtitle = `${roomlist.length} ${roomlist.length === 1 ? "room" : "rooms"} available`;
     }
+
+    console.log(roomlist)
 
     return (
         <div className="main-page">
@@ -107,12 +110,14 @@ function RoomListPage() {
 
                 {hasRooms && (
                     <section className="rooms">
-                        {roomlist.map((room, index) => (
+                        {roomlist.map((room) => (
                             <RoomCard
-                                key={`${room.name}-${index}`}
+                                key={room.room_id}
                                 name={room.name}
                                 description={room.description}
                                 members={room.members}
+                                room_id={room.room_id}
+                                is_private={room.is_private}
                             />
                         ))}
                     </section>

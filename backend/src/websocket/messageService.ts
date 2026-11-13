@@ -1,6 +1,6 @@
 import WebSocket from "ws";
 import { RoomClientMap } from "./roomManager.js";
-import {clients} from "./connectionManager.js"
+import {clients} from "./connection.js"
 
 export function broadcastmsg(
     roomId: string,

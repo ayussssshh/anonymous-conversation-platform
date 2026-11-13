@@ -47,3 +47,43 @@
     font-size: 12px;
   }
 }
+
+.leave-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  height: 36px;
+  padding: 0 14px;
+
+  background: transparent;
+  color: var(--danger, #e5484d);
+  border: 1px solid var(--danger, #e5484d);
+  border-radius: 8px;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.leave-btn:hover {
+  background: var(--danger, #e5484d);
+  color: #fff;
+}
+
+.leave-btn:active {
+  transform: scale(0.96);
+}
+
+.leave-btn:focus-visible {
+  outline: 2px solid var(--danger, #e5484d);
+  outline-offset: 2px;
+}
+
+.leave-btn-icon {
+  flex-shrink: 0;
+}

@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import "./RoomChatPage.css";
 
 interface Message {
-    type: "MESSAGE"
+    type: "MESSAGE";
     username: string;
     message: string;
     timestamp: number;
@@ -19,9 +19,6 @@ export default function RoomChatPage() {
     const listRef = useRef<HTMLElement>(null);
     const socketRef = useRef<WebSocket | null>(null);
     const { room_id } = useParams<{ room_id: string }>()
-
-    console.log(room_id)
-
 
     // Called when the user presses Send.
     // The message is NOT added locally: the server broadcasts it back to
@@ -48,7 +45,7 @@ export default function RoomChatPage() {
 
     if (!room_id) return;
 
-    const socket = new WebSocket("ws://localhost:3000/ws");
+    const socket = new WebSocket(`ws://localhost:3000/room/?roomId=${encodeURIComponent(room_id)}`);
 
     socketRef.current = socket;
 
@@ -57,7 +54,7 @@ export default function RoomChatPage() {
         console.log("WebSocket connected");
 
         socket.send(JSON.stringify({
-            type: "INTIAL_MESSAGE",
+            type: "SOCKET_CONNECTION",
             roomId: room_id
         }));
     };
@@ -133,7 +130,7 @@ export default function RoomChatPage() {
     return (
         <div className="room-chat-page">
             <RoomTopBar roomName="Room1" activeUser={18} />
-
+            
             <main className="chat-messages" ref={listRef}>
                 {messages.length === 0 && (
                     <p className="chat-empty">No messages yet. Say something.</p>
